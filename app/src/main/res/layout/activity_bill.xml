@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BillActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout10"
+        android:layout_width="544dp"
+        android:layout_height="405dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tableLayout6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/total"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/edit_totalbill"
+                android:inputType="textPersonName"
+                android:text="合計金額"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/total_print"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/total_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/payment"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/edit_payment"
+                android:inputType="textPersonName"
+                android:text="お預かり"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/paid"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/paid_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/change"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/print_change"
+                android:inputType="textPersonName"
+                android:text="おつり"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/change_print"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="@string/change_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/BillFin"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="2"
+                android:text="@string/button_finbill"
+                android:textSize="48sp" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout6"
+        android:layout_width="264dp"
+        android:layout_height="489dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/formula"
+                android:layout_width="wrap_content"
+                android:layout_height="84dp"
+                android:layout_weight="1"
+                android:text="@string/formula_text"
+                android:textAlignment="viewEnd"
+                android:textSize="34sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num1"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="1"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="2"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num3"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="3"
+                android:textSize="34sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num4"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="4"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num5"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="5"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num6"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="6"
+                android:textSize="34sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num7"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="7"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num8"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="8"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/num9"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="9"
+                android:textSize="34sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num0"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="0"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="OK"
+                android:textSize="34sp" />
+        </TableRow>
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
