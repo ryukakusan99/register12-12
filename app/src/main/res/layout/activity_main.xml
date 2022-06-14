@@ -6,32 +6,215 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="165dp"
-        android:layout_height="96dp"
-        android:onClick="TablefrmOut"
-        android:text="@string/button_finbill"
-        tools:layout_editor_absoluteX="535dp"
-        tools:layout_editor_absoluteY="626dp" />
+    <TableLayout
+        android:id="@+id/tableLayout10"
+        android:layout_width="335dp"
+        android:layout_height="201dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tableLayout6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="337dp"
-        android:layout_height="89dp"
-        android:ems="10"
-        android:hint="@string/edit_totalbill"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="186dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="332dp"
-        android:layout_height="82dp"
-        android:ems="10"
-        android:hint="@string/print_change"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="323dp" />
+            <EditText
+                android:id="@+id/total"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/edit_totalbill"
+                android:inputType="textPersonName"
+                android:text="合計金額"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/total_print"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/total_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/payment"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/edit_payment"
+                android:inputType="textPersonName"
+                android:text="お預かり"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/paid"
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/paid_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/change"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/print_change"
+                android:inputType="textPersonName"
+                android:text="おつり"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/change_print"
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/change_text"
+                android:inputType="textPersonName"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/BillFin"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="2"
+                android:text="@string/button_finbill" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout6"
+        android:layout_width="274dp"
+        android:layout_height="282dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/formula"
+                android:layout_width="wrap_content"
+                android:layout_height="84dp"
+                android:layout_weight="1"
+                android:text="@string/formula_text"
+                android:textAlignment="viewEnd"
+                android:textSize="34sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/num2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/num3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/num5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/num6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/num8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/num9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/num0"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="OK" />
+        </TableRow>
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

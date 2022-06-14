@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">demo1</string>
     <string name="button_finbill">会計完了</string>
+    <string name="button_inputpay">OK</string>
     <string name="edit_totalbill">合計金額</string>
+    <string name="edit_payment">お預かり</string>
     <string name="print_change">おつり</string>
+    <string name="formula_text" />
+    <string name="paid_text" />
+    <string name="total_text" />
+    <string name="change_text" />
 </resources>
