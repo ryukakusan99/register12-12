@@ -125,6 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="84dp"
                 android:layout_weight="1"
+                android:background="@drawable/frame"
                 android:text="@string/formula_text"
                 android:textAlignment="viewEnd"
                 android:textSize="34sp" />

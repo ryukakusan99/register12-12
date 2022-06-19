@@ -9,4 +9,7 @@
     <string name="paid_text" />
     <string name="total_text" />
     <string name="change_text" />
+    <string name="ordertotal_text" />
+    <string name="order_send">注文</string>
+    <string name="bill_start">会計</string>
 </resources>
