@@ -30,6 +30,7 @@
                 android:hint="@string/edit_totalbill"
                 android:inputType="textPersonName"
                 android:text="合計金額"
+                android:textAlignment="center"
                 android:textSize="20sp" />
 
             <EditText
@@ -55,6 +56,7 @@
                 android:hint="@string/edit_payment"
                 android:inputType="textPersonName"
                 android:text="お預かり"
+                android:textAlignment="center"
                 android:textSize="20sp" />
 
             <EditText
@@ -80,6 +82,7 @@
                 android:hint="@string/print_change"
                 android:inputType="textPersonName"
                 android:text="おつり"
+                android:textAlignment="center"
                 android:textSize="20sp" />
 
             <EditText
@@ -109,8 +112,8 @@
 
     <TableLayout
         android:id="@+id/tableLayout6"
-        android:layout_width="264dp"
-        android:layout_height="489dp"
+        android:layout_width="267dp"
+        android:layout_height="492dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
