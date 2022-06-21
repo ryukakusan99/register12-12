@@ -22,4 +22,15 @@
     <string name="menu8" />
     <string name="menu9" />
     <string name="menu10" />
+    <string name="ordered_text1" />
+    <string name="ordered_text2" />
+    <string name="ordered_text3" />
+    <string name="ordered_text4" />
+    <string name="ordered_text5" />
+    <string name="ordered_text6" />
+    <string name="ordered_text7" />
+    <string name="ordered_text8" />
+    <string name="ordered_text9" />
+    <string name="ordered_text10" />
+    <string name="cancel">取消</string>
 </resources>
