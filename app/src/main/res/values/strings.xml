@@ -33,4 +33,5 @@
     <string name="ordered_text9" />
     <string name="ordered_text10" />
     <string name="cancel">取消</string>
+    <string name="menuview_text" />
 </resources>
