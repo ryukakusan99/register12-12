@@ -20,7 +20,7 @@
             android:name=".BillActivity"
             android:exported="false" />
         <activity
-            android:name=".SubActivity"
+            android:name=".QrActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

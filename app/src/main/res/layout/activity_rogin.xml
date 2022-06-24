@@ -8,21 +8,22 @@
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="861dp"
-        android:layout_height="48dp"
+        android:layout_width="887dp"
+        android:layout_height="55dp"
         android:hint="ID:"
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintVertical_bias="0.322" />
+
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="861dp"
-        android:layout_height="51dp"
+        android:layout_width="867dp"
+        android:layout_height="63dp"
         android:layout_marginTop="8dp"
         android:hint="password:"
         android:imeOptions="actionDone"
@@ -30,11 +31,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
-
+        app:layout_constraintVertical_bias="0.448" />
 
     <Button
         android:id="@+id/login"
