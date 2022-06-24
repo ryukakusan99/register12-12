@@ -1,6 +1,7 @@
 package com.example.demo1
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -29,6 +30,7 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val num8 : Button = findViewById(R.id.num8)
         val num9 : Button = findViewById(R.id.num9)
         val ok : Button = findViewById(R.id.ok)
+        val BillFin : Button = findViewById(R.id.BillFin)
 
         num0.setOnClickListener(this)
         num1.setOnClickListener(this)
@@ -41,6 +43,7 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         num8.setOnClickListener(this)
         num9.setOnClickListener(this)
         ok.setOnClickListener(this)
+        BillFin.setOnClickListener(this)
     }
 
     @SuppressLint("SetTextI18n")
@@ -96,6 +99,10 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
                 change.text = ch.toString()     //おつりを文字列に変換して表示
                 formula.text = ""               //数式クリア
                 nStr = ""                       //数字の文字列クリア
+            }
+            R.id.BillFin -> {
+                val intent = Intent(this@BillActivity, QrActivity::class.java)
+                startActivity(intent)
             }
         }
     }
