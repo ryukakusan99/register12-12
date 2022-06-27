@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".QrActivity">
 
+/*
 
     <ImageView
         android:id="@+id/Image"
-        android:layout_width="307dp"
-        android:layout_height="241dp"
+        android:layout_width="518dp"
+        android:layout_height="475dp"
         android:src="@drawable/test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.177" />
-
+<!--
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.918" />
-
+-->
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"

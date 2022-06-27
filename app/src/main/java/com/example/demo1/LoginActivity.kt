@@ -40,9 +40,13 @@ class MainActivity : AppCompatActivity()  ,View.OnClickListener{
         val password: EditText = findViewById(R.id.password)//パスワード宣言
         when(view.id) {
             R.id.login -> {
-                if (username.text.isNullOrBlank() || password.text.isNullOrBlank()) {
+                if (username.text.isNullOrBlank() && password.text.isNullOrBlank()) {
                     Toast.makeText(this, "IDとパスワードを入力してください。", Toast.LENGTH_SHORT).show()
-                } else {
+                } else if(username.text.isNullOrBlank()){
+                    Toast.makeText(this, "IDを入力してください。", Toast.LENGTH_SHORT).show()
+                } else if(password.text.isNullOrBlank()) {
+                    Toast.makeText(this, "パスワードを入力してください。", Toast.LENGTH_SHORT).show()
+                }else {
                     Toast.makeText(this, "ログイン", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@MainActivity, OrderActivity::class.java)
                     startActivity(intent)

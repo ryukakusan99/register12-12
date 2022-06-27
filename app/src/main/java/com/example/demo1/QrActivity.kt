@@ -16,9 +16,9 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calorie)
 
-        val displayButton : Button = findViewById(R.id.button1)//ボタン宣言
+        //val displayButton : Button = findViewById(R.id.button1)//ボタン宣言
         val hideButton : Button = findViewById(R.id.button2)//ボタン宣言
-        displayButton.setOnClickListener(this)
+        //displayButton.setOnClickListener(this)
         hideButton.setOnClickListener(this)
 
     }
@@ -29,12 +29,10 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
     @SuppressLint("SetTextI18n")
     override fun onClick(view: View) {
         val imageView = findViewById<ImageView>(R.id.Image)//写真宣言
-        imageView.setImageResource(R.drawable.test)
+       imageView.setImageResource(R.drawable.test)
         when (view.id) {
-            R.id. button1-> {
-                imageView.visibility = View.VISIBLE
-            }
-            //非表示用ボタンの機能実装
+
+            //戻る選択
             R.id.button2 -> {
                 val intent = Intent(this@QrActivity, OrderActivity::class.java)
                 startActivity(intent)
