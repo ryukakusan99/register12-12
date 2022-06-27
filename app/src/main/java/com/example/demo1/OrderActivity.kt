@@ -21,7 +21,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m9 : String = ""
     var m10 : String = ""
     var m1_price : String = ""  //m1-m10_priceは価格
-    var m2_price : String = "100"
+    var m2_price : String = "200"
     var m3_price : String = ""
     var m4_price : String = ""
     var m5_price : String = ""
