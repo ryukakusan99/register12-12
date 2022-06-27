@@ -11,7 +11,7 @@ import android.widget.TextView
 class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
     var m1 : String = ""    //m1-m10はメニュー名
-    var m2 : String = ""
+    var m2 : String = "オレンジジュース"
     var m3 : String = ""
     var m4 : String = ""
     var m5 : String = ""
@@ -21,7 +21,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m9 : String = ""
     var m10 : String = ""
     var m1_price : String = ""  //m1-m10_priceは価格
-    var m2_price : String = ""
+    var m2_price : String = "100"
     var m3_price : String = ""
     var m4_price : String = ""
     var m5_price : String = ""
@@ -32,6 +32,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m10_price : String = ""
     var total_bill : Int = 0    //合計金額
     var str : String = "￥"     //合計金額表示用文字列
+    var mstr : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +64,9 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
         menu8.setOnClickListener(this)
         menu9.setOnClickListener(this)
         menu10.setOnClickListener(this)
+
+        mstr = "$m2 $str$m2_price"
+        menu2.text = mstr
 
     }
 
@@ -103,25 +107,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu1 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m1
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m1
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m1
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m1
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m1
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m1
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m1
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m1
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m1
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m1
                 }
                 total_bill += m1_price.toInt()
@@ -130,25 +134,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu2 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m2
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m2
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m2
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m2
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m2
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m2
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m2
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m2
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m2
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m2
                 }
                 total_bill += m2_price.toInt()
@@ -157,25 +161,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu3 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m3
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m3
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m3
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m3
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m3
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m3
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m3
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m3
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m3
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m3
                 }
                 total_bill += m3_price.toInt()
@@ -184,25 +188,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu4 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m4
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m4
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m4
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m4
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m4
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m4
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m4
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m4
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m4
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m4
                 }
                 total_bill += m4_price.toInt()
@@ -211,25 +215,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu5 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m5
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m5
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m5
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m5
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m5
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m5
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m5
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m5
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m5
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m5
                 }
                 total_bill += m5_price.toInt()
@@ -238,25 +242,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu6 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m6
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m6
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m6
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m6
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m6
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m6
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m6
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m6
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m6
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m6
                 }
                 total_bill += m6_price.toInt()
@@ -265,25 +269,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu7 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m7
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m7
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m7
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m7
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m7
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m7
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m7
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m7
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m7
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m7
                 }
                 total_bill += m7_price.toInt()
@@ -292,25 +296,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu8 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m8
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m8
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m8
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m8
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m8
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m8
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m8
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m8
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m8
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m8
                 }
                 total_bill += m8_price.toInt()
@@ -319,25 +323,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu9 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m9
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m9
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m9
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m9
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m9
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m9
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m9
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m9
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m9
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m9
                 }
                 total_bill += m9_price.toInt()
@@ -346,25 +350,25 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 str = "￥"
             }
             R.id.menu10 -> {
-                if(ordered1.text.equals("")){
+                if(ordered1.text.isNullOrBlank()){
                     ordered1.text = m10
-                } else if(ordered2.text.equals("")){
+                } else if(ordered2.text.isNullOrBlank()){
                     ordered2.text = m10
-                } else if(ordered3.text.equals("")){
+                } else if(ordered3.text.isNullOrBlank()){
                     ordered3.text = m10
-                } else if(ordered4.text.equals("")){
+                } else if(ordered4.text.isNullOrBlank()){
                     ordered4.text = m10
-                } else if(ordered5.text.equals("")){
+                } else if(ordered5.text.isNullOrBlank()){
                     ordered5.text = m10
-                } else if(ordered6.text.equals("")){
+                } else if(ordered6.text.isNullOrBlank()){
                     ordered6.text = m10
-                } else if(ordered7.text.equals("")){
+                } else if(ordered7.text.isNullOrBlank()){
                     ordered7.text = m10
-                } else if(ordered8.text.equals("")){
+                } else if(ordered8.text.isNullOrBlank()){
                     ordered8.text = m10
-                } else if(ordered9.text.equals("")){
+                } else if(ordered9.text.isNullOrBlank()){
                     ordered9.text = m10
-                } else if(ordered10.text.equals("")){
+                } else if(ordered10.text.isNullOrBlank()){
                     ordered10.text = m10
                 }
                 total_bill += m10_price.toInt()
