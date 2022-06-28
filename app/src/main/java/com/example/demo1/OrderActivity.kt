@@ -30,6 +30,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m8_price : String = ""
     var m9_price : String = ""
     var m10_price : String = ""
+    var m1_id : String = ""  //m1-m10_idは商品ID
+    var m2_id : String = ""
+    var m3_id : String = ""
+    var m4_id : String = ""
+    var m5_id : String = ""
+    var m6_id : String = ""
+    var m7_id : String = ""
+    var m8_id : String = ""
+    var m9_id : String = ""
+    var m10_id : String = ""
     var total_bill : Int = 0    //合計金額
     var str : String = "￥"     //合計金額表示用文字列
     var mstr : String = ""
@@ -54,6 +64,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
         //order.setOnClickListener(this)
         billstart.setOnClickListener(this)
+        cancel.setOnClickListener(this)
         menu1.setOnClickListener(this)
         menu2.setOnClickListener(this)
         menu3.setOnClickListener(this)
@@ -373,20 +384,6 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 total_bill += m10_price.toInt()
                 str += total_bill.toString()
                 ordertotal.text = str
-                str = "￥"
-            }
-            R.id.cancel -> {
-                ordered1.text = ""
-                ordered2.text = ""
-                ordered3.text = ""
-                ordered4.text = ""
-                ordered5.text = ""
-                ordered6.text = ""
-                ordered7.text = ""
-                ordered8.text = ""
-                ordered9.text = ""
-                ordered10.text = ""
-                ordertotal.text = ""
                 str = "￥"
             }
         }

@@ -98,15 +98,18 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
             R.id.ok -> {
                 payment += nStr.toInt() //数字の文字列を整数に変換
                 str += payment.toString()
-                paid.text = str                 //paymentをお預かりに送信
-                ch = payment - bill             //おつりを計算
-                change.text = ch.toString()     //おつりを文字列に変換して表示
+                paid.text = str //paymentをお預かりに送信
+                str = "￥"
+                ch = payment - bill //おつりを計算
+                str += ch.toString()
+                change.text = str     //おつりを文字列に変換して表示
                 formula.text = ""               //数式クリア
                 nStr = ""                       //数字の文字列クリア
                 str = "￥"
             }
             R.id.clear -> {
                 formula.text = ""
+                nStr = ""
             }
             R.id.BillFin -> {
                 val intent = Intent(this@BillActivity, QrActivity::class.java)
