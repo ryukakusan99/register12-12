@@ -24,105 +24,106 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text1"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text2"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text3"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered4"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text4"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered5"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text5"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered6"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text6"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered7"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text7"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered8"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text8"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered9"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text9"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordered10"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:background="@drawable/frame"
                 android:text="@string/ordered_text10"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -245,15 +246,16 @@
                 android:text="@string/bill_start"
                 android:textSize="34sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ordertotal"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="395dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame"
                 android:text="@string/ordertotal_text"
-                android:textAlignment="viewEnd"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
                 android:textSize="34sp" />
+
         </TableRow>
 
         <TableRow
