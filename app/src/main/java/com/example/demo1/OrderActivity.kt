@@ -12,7 +12,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
     var m1 : String = ""    //m1-m10はメニュー名
     var m2 : String = "オレンジジュース"
-    var m3 : String = ""
+    var m3 : String = "ホットケーキ"
     var m4 : String = ""
     var m5 : String = ""
     var m6 : String = ""
@@ -22,7 +22,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m10 : String = ""
     var m1_price : String = ""  //m1-m10_priceは価格
     var m2_price : String = "200"
-    var m3_price : String = ""
+    var m3_price : String = "300"
     var m4_price : String = ""
     var m5_price : String = ""
     var m6_price : String = ""
@@ -67,6 +67,8 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
         mstr = "$m2 $str$m2_price"
         menu2.text = mstr
+        mstr = "$m3 $str$m3_price"
+        menu3.text = mstr
 
     }
 
