@@ -23,14 +23,13 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.EditText
 
+//ログイン画面
 class MainActivity : AppCompatActivity()  ,View.OnClickListener{
-    //ログイン画面
-
 
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_rogin)
-         val button: Button = findViewById(R.id.login)//ボタン宣言
+         val button: Button = findViewById(R.id.login)//ログインボタン宣言
          button.setOnClickListener(this)
      }
     //入力確認
@@ -38,8 +37,10 @@ class MainActivity : AppCompatActivity()  ,View.OnClickListener{
     override fun onClick(view: View) {
         val username: EditText = findViewById(R.id.username)//ID宣言
         val password: EditText = findViewById(R.id.password)//パスワード宣言
+        //ログインボタンが押された処理
         when(view.id) {
             R.id.login -> {
+
                 if (username.text.isNullOrBlank() && password.text.isNullOrBlank()) {
                     Toast.makeText(this, "IDとパスワードを入力してください。", Toast.LENGTH_SHORT).show()
                 } else if(username.text.isNullOrBlank()){
