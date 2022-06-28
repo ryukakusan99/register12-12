@@ -12,7 +12,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
     var m1 : String = ""    //m1-m10はメニュー名
     var m2 : String = "オレンジジュース"
-    var m3 : String = ""
+    var m3 : String = "ホットケーキ"
     var m4 : String = ""
     var m5 : String = ""
     var m6 : String = ""
@@ -22,7 +22,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m10 : String = ""
     var m1_price : String = ""  //m1-m10_priceは価格
     var m2_price : String = "200"
-    var m3_price : String = ""
+    var m3_price : String = "300"
     var m4_price : String = ""
     var m5_price : String = ""
     var m6_price : String = ""
@@ -38,7 +38,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
 
-        val order : Button = findViewById(R.id.order)
+        //val order : Button = findViewById(R.id.order)
         val billstart : Button = findViewById(R.id.billstart)
         val cancel : Button = findViewById(R.id.cancel)
         val menu1 : Button = findViewById(R.id.menu1)
@@ -52,7 +52,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
         val menu9 : Button = findViewById(R.id.menu9)
         val menu10 : Button = findViewById(R.id.menu10)
 
-        order.setOnClickListener(this)
+        //order.setOnClickListener(this)
         billstart.setOnClickListener(this)
         menu1.setOnClickListener(this)
         menu2.setOnClickListener(this)
@@ -67,6 +67,8 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
 
         mstr = "$m2 $str$m2_price"
         menu2.text = mstr
+        mstr = "$m3 $str$m3_price"
+        menu3.text = mstr
 
     }
 
@@ -84,12 +86,9 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
         val ordertotal : TextView = findViewById(R.id.ordertotal)
 
         when(view.id){
-            R.id.billstart -> { //会計画面へ遷移
+            R.id.billstart -> { //サーバに商品を送信した後、会計画面へ遷移
                 val intent = Intent(this@OrderActivity, BillActivity::class.java)
                 startActivity(intent)
-            }
-            R.id.order -> {
-                //サーバに注文情報を送信
             }
             R.id.cancel -> {
                 ordered1.text = ""
@@ -374,6 +373,20 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
                 total_bill += m10_price.toInt()
                 str += total_bill.toString()
                 ordertotal.text = str
+                str = "￥"
+            }
+            R.id.cancel -> {
+                ordered1.text = ""
+                ordered2.text = ""
+                ordered3.text = ""
+                ordered4.text = ""
+                ordered5.text = ""
+                ordered6.text = ""
+                ordered7.text = ""
+                ordered8.text = ""
+                ordered9.text = ""
+                ordered10.text = ""
+                ordertotal.text = ""
                 str = "￥"
             }
         }

@@ -14,6 +14,7 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
     var payment : Int = 0   //お預かり
     var ch : Int = 0        //おつり
     var bill : Int = 0      //合計金額
+    var str : String = "￥"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,7 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val num8 : Button = findViewById(R.id.num8)
         val num9 : Button = findViewById(R.id.num9)
         val ok : Button = findViewById(R.id.ok)
+        val clear : Button = findViewById(R.id.clear)
         val BillFin : Button = findViewById(R.id.BillFin)
 
         num0.setOnClickListener(this)
@@ -43,6 +45,7 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         num8.setOnClickListener(this)
         num9.setOnClickListener(this)
         ok.setOnClickListener(this)
+        clear.setOnClickListener(this)
         BillFin.setOnClickListener(this)
     }
 
@@ -93,12 +96,17 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
                 nStr += "9"                       //数字の文字列に9を追加
             }
             R.id.ok -> {
-                payment += nStr.toInt()         //数字の文字列を整数に変換
-                paid.text = payment.toString()  //paymentをお預かりに送信
+                payment += nStr.toInt() //数字の文字列を整数に変換
+                str += payment.toString()
+                paid.text = str                 //paymentをお預かりに送信
                 ch = payment - bill             //おつりを計算
                 change.text = ch.toString()     //おつりを文字列に変換して表示
                 formula.text = ""               //数式クリア
                 nStr = ""                       //数字の文字列クリア
+                str = "￥"
+            }
+            R.id.clear -> {
+                formula.text = ""
             }
             R.id.BillFin -> {
                 val intent = Intent(this@BillActivity, QrActivity::class.java)
