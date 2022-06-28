@@ -23,6 +23,7 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.EditText
 
+
 //ログイン画面
 class MainActivity : AppCompatActivity()  ,View.OnClickListener{
 
