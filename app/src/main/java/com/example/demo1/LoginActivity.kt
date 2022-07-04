@@ -12,6 +12,9 @@
 */
 
 package com.example.demo1
+import java.sql.*;
+import android.app.Activity;
+import android.os.AsyncTask;
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -26,7 +29,24 @@ import android.widget.EditText
 
 //ログイン画面
 class MainActivity : AppCompatActivity()  ,View.OnClickListener{
+   //データベース接続
+    try
+    {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection conn = DriverManager . getConnection ("jdbc:mysql://160.16.141.77:51200/test001", "android", "12han");
+        Statement stmt = conn . createStatement ();
+        ResultSet rs = stmt . executeQuery ("Select * from shouhin");
 
+        while (rs.next()) {
+            int id = rs . getInt (1);
+            String name = rs . getString (2);
+            int nedan = rs . getInt (3);
+            text1 += id + " " + name + " " + nedan + " " + "\r\n";
+        }
+    }chach(Exception e){
+        text1=e.getMessage();
+    }
+        //宣言
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_rogin)
