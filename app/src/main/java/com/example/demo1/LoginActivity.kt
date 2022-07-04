@@ -13,9 +13,7 @@
 */
 
 package com.example.demo1
-import java.sql.*;
-import android.app.Activity;
-import android.os.AsyncTask;
+
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -28,7 +26,7 @@ import android.widget.EditText
 
 
 //ログイン画面
-abstract class MainActivity : AppCompatActivity()  ,View.OnClickListener {
+class MainActivity : AppCompatActivity()  ,View.OnClickListener {
     //宣言
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +58,7 @@ abstract class MainActivity : AppCompatActivity()  ,View.OnClickListener {
                     startActivity(intent)
                     //}else{
                     //  Toast.makeText(this, "IDかパスワードが違います", Toast.LENGTH_SHORT).show()
+                    //}
                 }
             }
         }
