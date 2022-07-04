@@ -1,14 +1,15 @@
 /*******************************************************************
  ***  File Name		: LoginActivity
- ***  Version		: V1.0
+ ***  Version		: V2.0
  ***  Designer		: 島田 靖大
- ***  Date			: 2022.06.24
+ ***  Date			: 2022.07.04
  ***  Purpose       : ログイン
  ***
  *******************************************************************/
 /*
 *** Revision :
 *** V1.0 : 島田　靖大, 2022.06.23
+*** V2.0 : 島田　靖大, 2022.07.04
 */
 
 package com.example.demo1
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity()  ,View.OnClickListener{
             text1 += id + " " + name + " " + nedan + " " + "\r\n";
         }
     }chach(Exception e){
-        text1=e.getMessage();
+        e.printStackTrace();
     }
         //宣言
      override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,9 +70,13 @@ class MainActivity : AppCompatActivity()  ,View.OnClickListener{
                 } else if(password.text.isNullOrBlank()) {
                     Toast.makeText(this, "パスワードを入力してください。", Toast.LENGTH_SHORT).show()
                 }else {
-                    Toast.makeText(this, "ログイン", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@MainActivity, OrderActivity::class.java)
-                    startActivity(intent)
+                    if(username==id && password ==pas) {
+                        Toast.makeText(this, "ログイン", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@MainActivity, OrderActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this, "IDかパスワードが違います", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
