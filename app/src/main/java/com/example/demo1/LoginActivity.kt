@@ -16,6 +16,7 @@ package com.example.demo1
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -26,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 //ログイン画面
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private var i: Int? = 0
+    private var i: Int = 0
 
     //宣言
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +35,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_rogin)
         val button: Button = findViewById(R.id.login)//ログインボタン宣言
         button.setOnClickListener(this)
+
     }
 
     public fun set(i: Int) {
+        println("i: "+i)
+        println(this.i)
         this.i = i;
     }
+
+
 
     //入力確認
     @SuppressLint("SetTextI18n")
@@ -58,19 +64,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
 
                     // val a = arrayOf(username, password)
-                    val b: String = username.text.toString()
+                    // val a: String = username.text.toString() + password.text.toString()
+                    val a: String = username.text.toString()
+                    val b: String = password.text.toString()
                     val task = DBLogin(this@MainActivity)
-                    task.execute(b)
-                    val str : String = this.i.toString();
-                    Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
+                    task.execute(a, b)
+
+                    // val str : String = this.i.toString();
+                    // Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
                 }
-                if (this.i == 1) {
+                /*
+                if (i == 1) {
                     Toast.makeText(this, "ログイン", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@MainActivity, OrderActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "IDかパスワードが違います", Toast.LENGTH_SHORT).show()
                 }
+
+                 */
             }
         }
     }
