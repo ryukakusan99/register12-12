@@ -35,8 +35,7 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
     @SuppressLint("SetTextI18n")
     override fun onClick(view: View) {
 
-        val imageView = findViewById<ImageView>(R.id.Image)//写真宣言
-        imageView.setImageResource(R.drawable.test)
+
         //戻る選択処理
         when (view.id) {
             R.id.button2 -> {
