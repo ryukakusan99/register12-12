@@ -67,9 +67,9 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         val adzukari: TextView = findViewById(R.id.adzukari)//ID宣言
         val otsuri:TextView=findViewById(R.id.otsuri)
         val calorie:TextView=findViewById(R.id.calorie)
-
-        val task = DBQr(this@QrActivity)
-        task.execute()
+       // binding.textView.text = binding.TextView.text.toString()
+        //val task = DBQr(this@QrActivity)
+       // task.execute()
 
         //戻る選択処理
         when (view.id) {
