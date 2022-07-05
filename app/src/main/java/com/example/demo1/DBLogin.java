@@ -53,9 +53,9 @@ public class DBLogin extends AsyncTask<String, Void, Integer> {
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection conn = DriverManager.getConnection("jdbc:mysql://160.16.141.77:51200/test001", "android", "12han");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://160.16.141.77:51200/shop", "android", "12han");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * from shouhin");
+            ResultSet rs = stmt.executeQuery("Select * from tennin");
 
             System.out.println("While no mae");
 
