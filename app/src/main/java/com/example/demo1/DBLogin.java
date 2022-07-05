@@ -61,7 +61,7 @@ public class DBLogin extends AsyncTask<String, Void, Integer> {
 
             while (rs.next()) {
                 String id = rs.getString(1);
-                String password = rs.getString(2);
+                String password = rs.getString(3);
                 System.out.println(params[0]);
                 System.out.println(params[1]);
                 System.out.println(id);
