@@ -20,6 +20,9 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bill)
 
+        var task = TaskDbConnectBill(this)
+        task.execute()
+
         val num0 : Button = findViewById(R.id.num0)
         val num1 : Button = findViewById(R.id.num1)
         val num2 : Button = findViewById(R.id.num2)

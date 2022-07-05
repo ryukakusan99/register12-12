@@ -8,12 +8,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 
-class OrderActivity : AppCompatActivity() , View.OnClickListener{
+class OrderActivity : AppCompatActivity() , View.OnClickListener {
+
 
     var m1 : String = ""    //m1-m10はメニュー名
-    var m2 : String = "オレンジジュース"
+    var m2 : String = ""
     var m3 : String = "ホットケーキ"
-    var m4 : String = ""
+    var m4 : String = "オレンジジュース"
     var m5 : String = ""
     var m6 : String = ""
     var m7 : String = ""
@@ -21,9 +22,9 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     var m9 : String = ""
     var m10 : String = ""
     var m1_price : String = ""  //m1-m10_priceは価格
-    var m2_price : String = "200"
+    var m2_price : String = ""
     var m3_price : String = "300"
-    var m4_price : String = ""
+    var m4_price : String = "200"
     var m5_price : String = ""
     var m6_price : String = ""
     var m7_price : String = ""
@@ -47,6 +48,9 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
+
+        var task = TaskDbConnectOrder(this)
+        task.execute()
 
         //val order : Button = findViewById(R.id.order)
         val billstart : Button = findViewById(R.id.billstart)
@@ -76,10 +80,74 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener{
         menu9.setOnClickListener(this)
         menu10.setOnClickListener(this)
 
-        mstr = "$m2 $str$m2_price"
-        menu2.text = mstr
         mstr = "$m3 $str$m3_price"
         menu3.text = mstr
+        mstr = "$m4 $str$m4_price"
+        menu4.text = mstr
+
+
+        if(!menu1.text.isNullOrBlank()){
+            var str = menu1.text.split(" ￥")
+            m1 = str[0]
+            m1_price = str[1]
+            println(str)
+        }
+        if(!menu2.text.isNullOrBlank()){
+            var str = menu2.text.split(" ￥")
+            m2 = str[0]
+            m2_price = str[1]
+        }
+        if(!menu3.text.isNullOrBlank()){
+            var str = menu3.text.split(" ￥")
+            m3 = str[0]
+            m3_price = str[1]
+        }
+        if(!menu4.text.isNullOrBlank()){
+            var str = menu4.text.split(" ￥")
+            m4 = str[0]
+            m4_price = str[1]
+        }
+        if(!menu5.text.isNullOrBlank()){
+            var str = menu5.text.split(" ￥")
+            m5 = str[0]
+            m5_price = str[1]
+        }
+        if(!menu6.text.isNullOrBlank()){
+            var str = menu6.text.split(" ￥")
+            m6 = str[0]
+            m6_price = str[1]
+        }
+        if(!menu7.text.isNullOrBlank()){
+            var str = menu7.text.split(" ￥")
+            m7 = str[0]
+            m7_price = str[1]
+        }
+        if(!menu8.text.isNullOrBlank()){
+            var str = menu8.text.split(" ￥")
+            m8 = str[0]
+            m8_price = str[1]
+        }
+        if(!menu9.text.isNullOrBlank()){
+            var str = menu9.text.split(" ￥")
+            m9 = str[0]
+            m9_price = str[1]
+        }
+        if(!menu10.text.isNullOrBlank()){
+            var str = menu10.text.split(" ￥")
+            m10 = str[0]
+            m10_price = str[1]
+        }
+
+        if(m1.isNullOrBlank()){ menu1.text = "なし" }
+        if(m2.isNullOrBlank()){ menu2.text = "なし" }
+        if(m3.isNullOrBlank()){ menu3.text = "なし" }
+        if(m4.isNullOrBlank()){ menu4.text = "なし" }
+        if(m5.isNullOrBlank()){ menu5.text = "なし" }
+        if(m6.isNullOrBlank()){ menu6.text = "なし" }
+        if(m7.isNullOrBlank()){ menu7.text = "なし" }
+        if(m8.isNullOrBlank()){ menu8.text = "なし" }
+        if(m9.isNullOrBlank()){ menu9.text = "なし" }
+        if(m10.isNullOrBlank()){ menu10.text = "なし" }
 
     }
 
