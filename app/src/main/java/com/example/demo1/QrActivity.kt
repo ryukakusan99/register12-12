@@ -18,7 +18,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -34,7 +36,14 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     override fun onClick(view: View) {
+        val menu: TextView = findViewById(R.id.Menu)//ID宣言
+        val goukei: TextView = findViewById(R.id.Goukei)//ID宣言
+        val adzukari: TextView = findViewById(R.id.adzukari)//ID宣言
+        val otsuri:TextView=findViewById(R.id.otsuri)
+        val calorie:TextView=findViewById(R.id.calorie)
 
+        val task = DBQr(this@QrActivity)
+        task.execute()
 
         //戻る選択処理
         when (view.id) {
