@@ -32,7 +32,7 @@ open class AsyncTaskBill() : Parcelable {
         executorService.submit(AsyncRunnable())
     }
 
-    fun doInBackground(): String {
+    open fun doInBackground(): String {
         var text1 = ""
         try {
             println("OK1")

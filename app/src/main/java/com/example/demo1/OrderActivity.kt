@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import java.sql.DriverManager
 
-class OrderActivity : AppCompatActivity() , View.OnClickListener {
+open class OrderActivity : AppCompatActivity() , View.OnClickListener {
 
 
     var m1 : String = ""    //m1-m10はメニュー名
@@ -51,6 +52,8 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
 
         var task = TaskDbConnectOrder(this)
         task.execute()
+        //mstr = task.returnData()
+        //println(mstr)
 
         //val order : Button = findViewById(R.id.order)
         val billstart : Button = findViewById(R.id.billstart)
@@ -65,6 +68,71 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         val menu8 : Button = findViewById(R.id.menu8)
         val menu9 : Button = findViewById(R.id.menu9)
         val menu10 : Button = findViewById(R.id.menu10)
+
+        /*val arr1 = mstr.split("\r\n")
+        if(!arr1[0].isNullOrBlank()){menu1.text = arr1[0]}
+        if(!arr1[1].isNullOrBlank()){menu2.text = arr1[1]}
+        if(!arr1[2].isNullOrBlank()){menu3.text = arr1[2]}
+        if(!arr1[3].isNullOrBlank()){menu4.text = arr1[3]}
+        if(!arr1[4].isNullOrBlank()){menu5.text = arr1[4]}
+        if(!arr1[5].isNullOrBlank()){menu6.text = arr1[5]}
+        if(!arr1[6].isNullOrBlank()){menu7.text = arr1[6]}
+        if(!arr1[7].isNullOrBlank()){menu8.text = arr1[7]}
+        if(!arr1[8].isNullOrBlank()){menu9.text = arr1[8]}*/
+        //if(!arr1[9].isNullOrBlank()){menu10.text = arr1[9]}
+
+        if(!menu1.text.isNullOrBlank()){
+            //menu1.text = arr1.get(0)
+            val str1 = menu1.text.split(" ￥")
+            m1 = str1[0]
+            m1_price = str1[1]
+            println(str1)
+        }
+        if(!menu2.text.isNullOrBlank()){
+            var str = menu2.text.split("￥")
+            m2 = str[0]
+            m2_price = str[1]
+        }
+        if(!menu3.text.isNullOrBlank()){
+            var str = menu3.text.split("￥")
+            m3 = str[0]
+            m3_price = str[1]
+        }
+        if(!menu4.text.isNullOrBlank()){
+            var str = menu4.text.split("￥")
+            m4 = str[0]
+            m4_price = str[1]
+        }
+        if(!menu5.text.isNullOrBlank()){
+            var str = menu5.text.split("￥")
+            m5 = str[0]
+            m5_price = str[1]
+        }
+        if(!menu6.text.isNullOrBlank()){
+            var str = menu6.text.split("￥")
+            m6 = str[0]
+            m6_price = str[1]
+        }
+        if(!menu7.text.isNullOrBlank()){
+            var str = menu7.text.split("￥")
+            m7 = str[0]
+            m7_price = str[1]
+        }
+        if(!menu8.text.isNullOrBlank()){
+            var str = menu8.text.split("￥")
+            m8 = str[0]
+            m8_price = str[1]
+        }
+        if(!menu9.text.isNullOrBlank()){
+            var str = menu9.text.split("￥")
+            m9 = str[0]
+            m9_price = str[1]
+        }
+        if(!menu10.text.isNullOrBlank()){
+            var str = menu10.text.split("￥")
+            m10 = str[0]
+            m10_price = str[1]
+        }
 
         //order.setOnClickListener(this)
         billstart.setOnClickListener(this)
@@ -86,57 +154,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         menu4.text = mstr
 
 
-        if(!menu1.text.isNullOrBlank()){
-            var str = menu1.text.split(" ￥")
-            m1 = str[0]
-            m1_price = str[1]
-            println(str)
-        }
-        if(!menu2.text.isNullOrBlank()){
-            var str = menu2.text.split(" ￥")
-            m2 = str[0]
-            m2_price = str[1]
-        }
-        if(!menu3.text.isNullOrBlank()){
-            var str = menu3.text.split(" ￥")
-            m3 = str[0]
-            m3_price = str[1]
-        }
-        if(!menu4.text.isNullOrBlank()){
-            var str = menu4.text.split(" ￥")
-            m4 = str[0]
-            m4_price = str[1]
-        }
-        if(!menu5.text.isNullOrBlank()){
-            var str = menu5.text.split(" ￥")
-            m5 = str[0]
-            m5_price = str[1]
-        }
-        if(!menu6.text.isNullOrBlank()){
-            var str = menu6.text.split(" ￥")
-            m6 = str[0]
-            m6_price = str[1]
-        }
-        if(!menu7.text.isNullOrBlank()){
-            var str = menu7.text.split(" ￥")
-            m7 = str[0]
-            m7_price = str[1]
-        }
-        if(!menu8.text.isNullOrBlank()){
-            var str = menu8.text.split(" ￥")
-            m8 = str[0]
-            m8_price = str[1]
-        }
-        if(!menu9.text.isNullOrBlank()){
-            var str = menu9.text.split(" ￥")
-            m9 = str[0]
-            m9_price = str[1]
-        }
-        if(!menu10.text.isNullOrBlank()){
-            var str = menu10.text.split(" ￥")
-            m10 = str[0]
-            m10_price = str[1]
-        }
+
 
         if(m1.isNullOrBlank()){ menu1.text = "なし" }
         if(m2.isNullOrBlank()){ menu2.text = "なし" }
@@ -150,6 +168,8 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         if(m10.isNullOrBlank()){ menu10.text = "なし" }
 
     }
+
+
 
     override fun onClick(view: View){
         val ordered1 : TextView = findViewById(R.id.ordered1)
