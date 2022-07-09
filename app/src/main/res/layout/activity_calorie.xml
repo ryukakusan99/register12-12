@@ -49,8 +49,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028" />
 
-    <TextView
-        android:id="@+id/Menu"
+    <ScrollView
+        android:id="@+id/text"
         android:layout_width="602dp"
         android:layout_height="266dp"
         android:text=""
@@ -60,7 +60,15 @@
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.276" >
+
+        <TextView
+            android:id="@+id/Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/Goukei"
@@ -156,16 +164,16 @@
 
     <TextView
         android:id="@+id/calorie"
-        android:layout_width="176dp"
-        android:layout_height="51dp"
+        android:layout_width="227dp"
+        android:layout_height="49dp"
         android:text=""
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
+        app:layout_constraintVertical_bias="0.902" />
 
     <Button
         android:id="@+id/view"
