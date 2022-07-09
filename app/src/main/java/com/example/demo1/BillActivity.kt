@@ -18,6 +18,8 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
     var str : String = "￥"
     var ordercontent : String = ""
     var totaltext : String = ""
+    var pd : String = ""
+    var cg : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,10 +119,12 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
             R.id.ok -> {
                 payment += nStr.toInt() //数字の文字列を整数に変換
                 str += payment.toString()
+                pd = str
                 paid.text = str //paymentをお預かりに送信
                 str = "￥"
                 ch = payment - bill //おつりを計算
                 str += ch.toString()
+                cg = str
                 change.text = str     //おつりを文字列に変換して表示
                 formula.text = ""               //数式クリア
                 nStr = ""                       //数字の文字列クリア
@@ -133,8 +137,8 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
             R.id.BillFin -> {
                 val intent = Intent(this@BillActivity, QrActivity::class.java)
                 intent.putExtra("total", totaltext)
-                intent.putExtra("change", change.text)
-                intent.putExtra("payment", paid.text)
+                intent.putExtra("change", cg)
+                intent.putExtra("payment", pd)
                 intent.putExtra("menuview", ordercontent)
                 startActivity(intent)
             }
