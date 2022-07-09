@@ -71,8 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     val task = DBLogin(this@MainActivity)
                     task.execute(a, b)
 
-                    // val str : String = this.i.toString();
-                    // Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
+
                 }
                 /*
                 if (i == 1) {
@@ -88,5 +87,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 }
-//}
+
 
