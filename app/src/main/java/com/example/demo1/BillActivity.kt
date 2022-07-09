@@ -17,25 +17,19 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
     var bill : Int = 0      //合計金額
     var str : String = "￥"
     var ordercontent : String = ""
-
-    inner class TaskBillConnect(act : Activity) : AsyncTaskBill() {
-        override var activity: Activity? = null
-        init {
-            activity = act
-        }
-
-        override fun onPostExecute(result: String) {
-            this@BillActivity.ordercontent = result
-        }
-    }
+    var totaltext : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bill)
 
         val total = intent.getStringExtra("Total")
+        val order = intent.getStringExtra("ordercontent")
         if (total != null) {
             bill = total.toInt()
+        }
+        if (order != null) {
+            ordercontent = order
         }
 
         val num0 : Button = findViewById(R.id.num0)
@@ -51,7 +45,6 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val ok : Button = findViewById(R.id.ok)
         val clear : Button = findViewById(R.id.clear)
         val BillFin : Button = findViewById(R.id.BillFin)
-        val orderget : Button = findViewById(R.id.orderget)
         val menuview : TextView = findViewById(R.id.menuview)
         val total_print : TextView = findViewById(R.id.total_print)
 
@@ -68,15 +61,10 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         ok.setOnClickListener(this)
         clear.setOnClickListener(this)
         BillFin.setOnClickListener(this)
-        orderget.setOnClickListener(this)
 
-        var task = this.TaskBillConnect(this)
-        task.execute()
-        println(ordercontent)
-        if(menuview.text.isNullOrBlank()){
-            menuview.text = "注文情報取得完了"
-        }
-
+        totaltext += "$str$bill"
+        total_print.text = totaltext
+        menuview.text = ordercontent
     }
 
     @SuppressLint("SetTextI18n")
@@ -84,8 +72,6 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val formula : TextView = findViewById(R.id.formula)
         val paid : TextView = findViewById(R.id.paid)
         val change : TextView = findViewById(R.id.change_print)
-        val menuview : TextView = findViewById(R.id.menuview)
-        val totalprint : TextView = findViewById(R.id.total_print)
 
         when(view.id){
             R.id.num0 -> {
@@ -146,16 +132,11 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
             }
             R.id.BillFin -> {
                 val intent = Intent(this@BillActivity, QrActivity::class.java)
+                intent.putExtra("total", totaltext)
+                intent.putExtra("change", change.text)
+                intent.putExtra("payment", paid.text)
+                intent.putExtra("menuview", ordercontent)
                 startActivity(intent)
-            }
-            R.id.orderget -> {
-                var totaltext = ""
-                var task1 = this.TaskBillConnect(this)
-                task1.execute()
-                println(ordercontent)
-                menuview.text = ordercontent
-                totaltext += "$str$bill"
-                totalprint.text = totaltext
             }
         }
     }

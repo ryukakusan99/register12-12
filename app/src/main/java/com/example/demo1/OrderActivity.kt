@@ -45,6 +45,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
     var total_bill : Int = 0    //合計金額
     var str : String = "￥"     //合計金額表示用文字列
     var mstr : String = ""
+    var ordercontent : String = ""
 
     inner class TaskOrderConnect(act : Activity) : AsyncTaskOrder() {
         override var activity: Activity? = null
@@ -133,6 +134,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
             R.id.billstart -> { //サーバに商品を送信した後、会計画面へ遷移
                 val intent = Intent(this@OrderActivity, BillActivity::class.java)
                 intent.putExtra("Total", total_bill.toString())
+                intent.putExtra("ordercontent", ordercontent)
                 startActivity(intent)
             }
             R.id.cancel -> {
@@ -148,6 +150,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 ordered9.text = ""
                 ordered10.text = ""
                 ordertotal.text = ""
+                ordercontent = ""
                 total_bill = 0
                 str = "￥"
 
@@ -247,6 +250,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m1
                     }
+                    ordercontent += "$m1 $str$m1_price\r\n"
                     total_bill += m1_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -276,6 +280,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m2
                     }
+                    ordercontent += "$m2 $str$m2_price\r\n"
                     total_bill += m2_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -305,6 +310,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m3
                     }
+                    ordercontent += "$m3 $str$m3_price\r\n"
                     total_bill += m3_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -334,6 +340,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m4
                     }
+                    ordercontent += "$m4 $str$m4_price\r\n"
                     total_bill += m4_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -363,6 +370,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m5
                     }
+                    ordercontent += "$m5 $str$m5_price\r\n"
                     total_bill += m5_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -392,6 +400,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m6
                     }
+                    ordercontent += "$m6 $str$m6_price\r\n"
                     total_bill += m6_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -421,6 +430,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m7
                     }
+                    ordercontent += "$m7 $str$m7_price\r\n"
                     total_bill += m7_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -450,6 +460,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m8
                     }
+                    ordercontent += "$m8 $str$m8_price\r\n"
                     total_bill += m8_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -479,6 +490,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m9
                     }
+                    ordercontent += "$m9 $str$m9_price\r\n"
                     total_bill += m9_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str
@@ -508,6 +520,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m10
                     }
+                    ordercontent += "$m10 $str$m10_price\r\n"
                     total_bill += m10_price.toInt()
                     str += total_bill.toString()
                     ordertotal.text = str

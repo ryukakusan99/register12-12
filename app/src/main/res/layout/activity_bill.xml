@@ -124,15 +124,6 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/orderget"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:backgroundTint="@android:color/holo_red_light"
-                android:text="注文表示"
-                android:textColor="@color/black"
-                android:textSize="48sp" />
-
-            <Button
                 android:id="@+id/BillFin"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
