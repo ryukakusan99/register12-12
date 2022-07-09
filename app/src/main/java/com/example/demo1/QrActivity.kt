@@ -3,7 +3,7 @@
 ***  Version		: V1.0
 ***  Designer		: 島田 靖大
 ***  Date			: 2022.06.24
-***  Purpose       : QR写真を表示
+***  Purpose       : レシートを表示
 ***
 *******************************************************************/
 /*
@@ -35,30 +35,7 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         hideButton.setOnClickListener(this)
     }
 
-    fun doInBackground(): String {
-        var text1 = ""
-        try {
-            println("OK1")
-            Class.forName("com.mysql.jdbc.Driver").newInstance()
-            val conn = DriverManager.getConnection(
-                "jdbc:mysql://160.16.141.77:51200/test001",
-                "android",
-                "12han"
-            )
-            val stmt = conn.createStatement()
-            val rs = stmt.executeQuery("Select * from shouhin")
-            while (rs.next()) {
-                val id = rs.getInt(1)
-                val name = rs.getString(2)
-                val nedan = rs.getInt(3)
-                text1 += "$id $name $nedan \r\n"
-            }
-        } catch (e: Exception) {
-            text1 = e.message.toString()
-        }
-        return text1
-        //return ""
-    }
+
 
     @SuppressLint("SetTextI18n")
     override fun onClick(view: View) {
@@ -67,9 +44,12 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         val adzukari: TextView = findViewById(R.id.adzukari)//ID宣言
         val otsuri:TextView=findViewById(R.id.otsuri)
         val calorie:TextView=findViewById(R.id.calorie)
-       // binding.textView.text = binding.TextView.text.toString()
-        //val task = DBQr(this@QrActivity)
-       // task.execute()
+
+         menu.text=intent.getStringExtra("menuview")
+         goukei.text = intent.getStringExtra("Total")
+         adzukari.text = intent.getStringExtra("payment")
+         otsuri.text = intent.getStringExtra("change")
+         //calorie=
 
         //戻る選択処理
         when (view.id) {
