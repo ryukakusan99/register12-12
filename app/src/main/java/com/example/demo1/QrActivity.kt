@@ -33,31 +33,34 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
 
         val hideButton : Button = findViewById(R.id.button2)//戻るボタン宣言
         hideButton.setOnClickListener(this)
+        val menu: TextView = findViewById(R.id.Menu)//ID宣言
+        val goukei: TextView = findViewById(R.id.Goukei)//ID宣言
+        val adzukari: TextView = findViewById(R.id.adzukari)//ID宣言
+        val otsuri:TextView=findViewById(R.id.otsuri)
+        val calorie:TextView=findViewById(R.id.calorie)
+        menu.text=intent.getStringExtra("menuview")
+        goukei.text = intent.getStringExtra("total")
+        adzukari.text = intent.getStringExtra("payment")
+        otsuri.text = intent.getStringExtra("change")
+        calorie.text= intent.getStringExtra("calorie")
     }
 
 
 
     @SuppressLint("SetTextI18n")
     override fun onClick(view: View) {
-        val menu: TextView = findViewById(R.id.Menu)//ID宣言
-        val goukei: TextView = findViewById(R.id.Goukei)//ID宣言
-        val adzukari: TextView = findViewById(R.id.adzukari)//ID宣言
-        val otsuri:TextView=findViewById(R.id.otsuri)
-        val calorie:TextView=findViewById(R.id.calorie)
-
-         menu.text=intent.getStringExtra("menuview")
-         goukei.text = intent.getStringExtra("Total")
-         adzukari.text = intent.getStringExtra("payment")
-         otsuri.text = intent.getStringExtra("change")
-         //calorie=
 
         //戻る選択処理
         when (view.id) {
             R.id.button2 -> {
                 val intent = Intent(this@QrActivity, OrderActivity::class.java)
                 startActivity(intent)
+
             }
+
         }
+
     }
+
 }
 

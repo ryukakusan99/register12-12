@@ -54,18 +54,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //ログインボタンが押された処理
         when (view.id) {
             R.id.login -> {
-
+                //IDとパスワードがない時
                 if (username.text.isNullOrBlank() && password.text.isNullOrBlank()) {
                     Toast.makeText(this, "IDとパスワードを入力してください。", Toast.LENGTH_SHORT).show()
+                //IDがない時
                 } else if (username.text.isNullOrBlank()) {
                     Toast.makeText(this, "IDを入力してください。", Toast.LENGTH_SHORT).show()
+                //パスワードがない時
                 } else if (password.text.isNullOrBlank()) {
                     Toast.makeText(this, "パスワードを入力してください。", Toast.LENGTH_SHORT).show()
                 } else {
-
-                    // val a = arrayOf(username, password)
-                    // val a: String = username.text.toString() + password.text.toString()
+                    //ID宣言
                     val a: String = username.text.toString()
+                    //パスワード宣言
                     val b: String = password.text.toString()
                     val task = DBLogin(this@MainActivity)
                     task.execute(a, b)
