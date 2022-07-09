@@ -1,6 +1,7 @@
 package com.example.demo1
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,13 +16,27 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
     var ch : Int = 0        //おつり
     var bill : Int = 0      //合計金額
     var str : String = "￥"
+    var ordercontent : String = ""
+
+    inner class TaskBillConnect(act : Activity) : AsyncTaskBill() {
+        override var activity: Activity? = null
+        init {
+            activity = act
+        }
+
+        override fun onPostExecute(result: String) {
+            this@BillActivity.ordercontent = result
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bill)
 
-        var task = TaskDbConnectBill(this)
-        task.execute()
+        val total = intent.getStringExtra("Total")
+        if (total != null) {
+            bill = total.toInt()
+        }
 
         val num0 : Button = findViewById(R.id.num0)
         val num1 : Button = findViewById(R.id.num1)
@@ -36,6 +51,9 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val ok : Button = findViewById(R.id.ok)
         val clear : Button = findViewById(R.id.clear)
         val BillFin : Button = findViewById(R.id.BillFin)
+        val orderget : Button = findViewById(R.id.orderget)
+        val menuview : TextView = findViewById(R.id.menuview)
+        val total_print : TextView = findViewById(R.id.total_print)
 
         num0.setOnClickListener(this)
         num1.setOnClickListener(this)
@@ -50,6 +68,15 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         ok.setOnClickListener(this)
         clear.setOnClickListener(this)
         BillFin.setOnClickListener(this)
+        orderget.setOnClickListener(this)
+
+        var task = this.TaskBillConnect(this)
+        task.execute()
+        println(ordercontent)
+        if(menuview.text.isNullOrBlank()){
+            menuview.text = "注文情報取得完了"
+        }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -57,6 +84,9 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
         val formula : TextView = findViewById(R.id.formula)
         val paid : TextView = findViewById(R.id.paid)
         val change : TextView = findViewById(R.id.change_print)
+        val menuview : TextView = findViewById(R.id.menuview)
+        val totalprint : TextView = findViewById(R.id.total_print)
+
         when(view.id){
             R.id.num0 -> {
                 formula.text = "${formula.text}0" //表示する数式に0を追加
@@ -117,6 +147,15 @@ class BillActivity : AppCompatActivity() , View.OnClickListener{
             R.id.BillFin -> {
                 val intent = Intent(this@BillActivity, QrActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.orderget -> {
+                var totaltext = ""
+                var task1 = this.TaskBillConnect(this)
+                task1.execute()
+                println(ordercontent)
+                menuview.text = ordercontent
+                totaltext += "$str$bill"
+                totalprint.text = totaltext
             }
         }
     }

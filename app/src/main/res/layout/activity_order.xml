@@ -270,6 +270,15 @@
                 android:text="@string/cancel"
                 android:textColor="@color/black"
                 android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/menuget"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@android:color/holo_purple"
+                android:text="メニュー取得"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
         </TableRow>
 
     </TableLayout>

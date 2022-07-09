@@ -38,7 +38,7 @@ open class AsyncTaskBill() : Parcelable {
             println("OK1")
             Class.forName("com.mysql.jdbc.Driver").newInstance()
             val conn = DriverManager.getConnection(
-                "jdbc:mysql://160.16.141.77:51200/test001",
+                "jdbc:mysql://160.16.141.77:51200/shop",
                 "android",
                 "12han"
             )
@@ -57,9 +57,8 @@ open class AsyncTaskBill() : Parcelable {
         //return ""
     }
 
-    fun onPostExecute(result: String) {
-        val tv = activity!!.findViewById<View>(R.id.menuview) as TextView
-        tv.text = result
+    open fun onPostExecute(result: String) {
+        val str = result
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
