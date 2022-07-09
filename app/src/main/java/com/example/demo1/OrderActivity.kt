@@ -228,7 +228,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu1 -> {
-                if(!menu1.text.equals("なし")) {
+                if(!menu1.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m1
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -258,7 +258,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu2 -> {
-                if(!menu2.text.equals("なし")) {
+                if(!menu2.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m2
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -288,7 +288,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu3 -> {
-                if(!menu3.text.equals("なし")) {
+                if(!menu3.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m3
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -318,7 +318,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu4 -> {
-                if(!menu4.text.equals("なし")) {
+                if(!menu4.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m4
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -348,7 +348,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu5 -> {
-                if(!menu5.text.equals("なし")) {
+                if(!menu5.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m5
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -378,7 +378,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 }
             }
             R.id.menu6 -> {
-                if(!menu6.text.equals("なし")) {
+                if(!menu6.text.equals("なし") && ordered10.text.isNullOrBlank()) {
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m6
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -409,7 +409,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
             }
             R.id.menu7 -> {
                 if(!menu7.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank()) {
+                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
                         ordered1.text = m7
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m7
@@ -439,7 +439,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
             }
             R.id.menu8 -> {
                 if(!menu8.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank()) {
+                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
                         ordered1.text = m8
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m8
@@ -469,7 +469,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
             }
             R.id.menu9 -> {
                 if(!menu9.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank()) {
+                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
                         ordered1.text = m9
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m9
@@ -499,7 +499,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
             }
             R.id.menu10 -> {
                 if(!menu10.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank()) {
+                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
                         ordered1.text = m10
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m10
