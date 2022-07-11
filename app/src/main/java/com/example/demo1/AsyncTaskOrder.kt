@@ -58,9 +58,8 @@ open class AsyncTaskOrder {
             val stmt = conn.createStatement()
             val rs = stmt.executeQuery("Select * from shouhin")
             while (rs.next()) {
-                val id = rs.getInt(1)
-                val name = rs.getString(2)
-                val nedan = rs.getInt(3)
+                val name = rs.getString(2) //商品名
+                val nedan = rs.getInt(3)   //価格
                 text1 += "$name$sp$str$nedan\r\n"
             }
         } catch (e: Exception) {
