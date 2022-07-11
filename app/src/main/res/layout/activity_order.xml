@@ -284,3 +284,17 @@
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--**********************************************************
+ ***  File Name		: activity_order.xml
+ ***  Version		: V2.0
+ ***  Designer		: 藤原　達也
+ ***  Date			: 2022.07.11
+ ***  Purpose       : 注文画面表示
+ ***
+***********************************************************-->
+<!--
+*** Revision :
+*** V1.0 : 藤原　達也, 2022.06.23
+*** V2.0 : 藤原　達也, 2022.07.11
+-->

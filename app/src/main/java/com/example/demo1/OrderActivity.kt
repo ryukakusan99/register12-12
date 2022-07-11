@@ -1,6 +1,20 @@
+/*******************************************************************
+ ***  File Name		: OrderActivity.kt
+ ***  Version		: V3.0
+ ***  Designer		: 藤原　達也
+ ***  Date			: 2022.07.11
+ ***  Purpose       : 注文処理
+ ***
+ *******************************************************************/
+/*
+*** Revision :
+*** V1.0 : 藤原　達也, 2022.06.23
+*** V2.0 : 藤原　達也, 2022.07.04
+*** V3.0 : 藤原　達也, 2022.07.11
+*/
+
 package com.example.demo1
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +22,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import java.sql.DriverManager
 
 class OrderActivity : AppCompatActivity() , View.OnClickListener {
 
-    var m1 : String = ""    //m1-m10はメニュー名
+    var m1 : String = ""    //m1からm10はメニュー名
     var m2 : String = ""
     var m3 : String = ""
     var m4 : String = ""
@@ -22,7 +35,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
     var m8 : String = ""
     var m9 : String = ""
     var m10 : String = ""
-    var m1_price : String = ""  //m1-m10_priceは価格
+    var m1_price : String = ""  //m1_priceからm10_priceは価格
     var m2_price : String = ""
     var m3_price : String = ""
     var m4_price : String = ""
@@ -32,39 +45,33 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
     var m8_price : String = ""
     var m9_price : String = ""
     var m10_price : String = ""
-    var m1_id : String = ""  //m1-m10_idは商品ID
-    var m2_id : String = ""
-    var m3_id : String = ""
-    var m4_id : String = ""
-    var m5_id : String = ""
-    var m6_id : String = ""
-    var m7_id : String = ""
-    var m8_id : String = ""
-    var m9_id : String = ""
-    var m10_id : String = ""
     var total_bill : Int = 0    //合計金額
     var str : String = "￥"     //合計金額表示用文字列
-    var mstr : String = ""
-    var ordercontent : String = ""
+    var mstr : String = ""      //メニュー情報を格納
+    var ordercontent : String = "" //注文商品と価格の情報を格納
 
+    //データベースへの接続とデータの取得を行う内部クラス
     inner class TaskOrderConnect(act : Activity) : AsyncTaskOrder() {
         override var activity: Activity? = null
-        init {
+        init { //対象アクティビティを初期化
             activity = act
         }
 
         override fun onPostExecute(result: String) {
-            this@OrderActivity.mstr = result
+            this@OrderActivity.mstr = result //取得したデータを現アクティビティ内の変数に格納
         }
     }
 
+    //注文画面表示開始時の初期設定
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
 
+        //内部クラスを呼び出してデータベースへ接続開始
         var task1 = this.TaskOrderConnect(this)
         task1.execute()
 
+        //各ボタンを表す変数
         val billstart : Button = findViewById(R.id.billstart)
         val cancel : Button = findViewById(R.id.cancel)
         val menuget : Button = findViewById(R.id.menuget)
@@ -79,6 +86,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         val menu9 : Button = findViewById(R.id.menu9)
         val menu10 : Button = findViewById(R.id.menu10)
 
+        //各ボタンのクリックイベント登録
         billstart.setOnClickListener(this)
         cancel.setOnClickListener(this)
         menuget.setOnClickListener(this)
@@ -93,6 +101,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         menu9.setOnClickListener(this)
         menu10.setOnClickListener(this)
 
+        //メニュー取得前において，メニューボタンに表示する文字を"なし"に初期化
         if(m1.isNullOrBlank()){ menu1.text = "なし" }
         if(m2.isNullOrBlank()){ menu2.text = "なし" }
         if(m3.isNullOrBlank()){ menu3.text = "なし" }
@@ -104,9 +113,12 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         if(m9.isNullOrBlank()){ menu9.text = "なし" }
         if(m10.isNullOrBlank()){ menu10.text = "なし" }
 
+
     }
 
+    //各ボタンのクリックイベント設定
     override fun onClick(view: View){
+        //各テキストフィールドを表す変数
         val ordered1 : TextView = findViewById(R.id.ordered1)
         val ordered2 : TextView = findViewById(R.id.ordered2)
         val ordered3 : TextView = findViewById(R.id.ordered3)
@@ -119,6 +131,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         val ordered10 : TextView = findViewById(R.id.ordered10)
         val ordertotal : TextView = findViewById(R.id.ordertotal)
 
+        //各ボタンを表す変数
         val menu1 : Button = findViewById(R.id.menu1)
         val menu2 : Button = findViewById(R.id.menu2)
         val menu3 : Button = findViewById(R.id.menu3)
@@ -131,14 +144,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         val menu10 : Button = findViewById(R.id.menu10)
 
         when(view.id){
-            R.id.billstart -> { //サーバに商品を送信した後、会計画面へ遷移
+            R.id.billstart -> { //会計ボタン押下時
+                //会計画面への遷移
                 val intent = Intent(this@OrderActivity, BillActivity::class.java)
-                intent.putExtra("Total", total_bill.toString())
-                intent.putExtra("ordercontent", ordercontent)
+                //次アクティビティにデータを送る
+                intent.putExtra("Total", total_bill.toString())  //合計金額
+                intent.putExtra("ordercontent", ordercontent)    //注文商品と価格
                 startActivity(intent)
             }
-            R.id.cancel -> {
-                println("cancel")
+            R.id.cancel -> { //取消ボタン押下時
+                //注文リストクリア
                 ordered1.text = ""
                 ordered2.text = ""
                 ordered3.text = ""
@@ -149,20 +164,19 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 ordered8.text = ""
                 ordered9.text = ""
                 ordered10.text = ""
+                //合計金額クリア
                 ordertotal.text = ""
-                ordercontent = ""
                 total_bill = 0
                 str = "￥"
-
-                println("cancel finish")
+                //注文商品と価格についての記録をクリア
+                ordercontent = ""
             }
-            R.id.menuget -> {
-                println("menuget start")
-
+            R.id.menuget -> { //メニュー取得ボタン押下時
+                //内部クラスを呼び出し，データベースへの接続終了＆取得データ取り出し
                 var task1 = this.TaskOrderConnect(this)
                 task1.execute()
-                println(mstr)
 
+                //取得データの分解＆メニューボタン上の文字列設定
                 val arr1 = mstr.split("\r\n")
                 if(!arr1[0].isNullOrBlank()){menu1.text = arr1[0]}
                 if(!arr1[1].isNullOrBlank()){menu2.text = arr1[1]}
@@ -175,6 +189,7 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                 if(!arr1[8].isNullOrBlank()){menu9.text = arr1[8]}
                 if(!arr1[9].isNullOrBlank()){menu10.text = arr1[9]}
 
+                //メニュー情報を"メニュー名"と"価格"に分解
                 if(!menu1.text.equals("なし")){
                     val str1 = menu1.text.split(" ￥")
                     m1 = str1[0]
@@ -227,8 +242,9 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     m10_price = str[1]
                 }
             }
-            R.id.menu1 -> {
+            R.id.menu1 -> { //1番目のメニューボタン押下時
                 if(!menu1.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m1
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -250,15 +266,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m1
                     }
-                    ordercontent += "$m1 $str$m1_price\r\n"
-                    total_bill += m1_price.toInt()
+                    ordercontent += "$m1 $str$m1_price\r\n" //注文商品と価格を記録
+                    total_bill += m1_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu2 -> {
+            R.id.menu2 -> { //2番目のメニューボタン押下時
                 if(!menu2.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m2
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -280,15 +297,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m2
                     }
-                    ordercontent += "$m2 $str$m2_price\r\n"
-                    total_bill += m2_price.toInt()
+                    ordercontent += "$m2 $str$m2_price\r\n" //注文商品と価格を記録
+                    total_bill += m2_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu3 -> {
+            R.id.menu3 -> { //3番目のメニューボタン押下時
                 if(!menu3.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m3
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -310,15 +328,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m3
                     }
-                    ordercontent += "$m3 $str$m3_price\r\n"
-                    total_bill += m3_price.toInt()
+                    ordercontent += "$m3 $str$m3_price\r\n" //注文商品と価格を記録
+                    total_bill += m3_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu4 -> {
+            R.id.menu4 -> { //4番目のメニューボタン押下時
                 if(!menu4.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m4
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -340,15 +359,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m4
                     }
-                    ordercontent += "$m4 $str$m4_price\r\n"
-                    total_bill += m4_price.toInt()
+                    ordercontent += "$m4 $str$m4_price\r\n" //注文商品と価格を記録
+                    total_bill += m4_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu5 -> {
+            R.id.menu5 -> { //5番目のメニューボタン押下時
                 if(!menu5.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m5
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -370,15 +390,16 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m5
                     }
-                    ordercontent += "$m5 $str$m5_price\r\n"
-                    total_bill += m5_price.toInt()
+                    ordercontent += "$m5 $str$m5_price\r\n" //注文商品と価格を記録
+                    total_bill += m5_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu6 -> {
+            R.id.menu6 -> { //6番目のメニューボタン押下時
                 if(!menu6.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
                     if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m6
                     } else if (ordered2.text.isNullOrBlank()) {
@@ -400,16 +421,17 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m6
                     }
-                    ordercontent += "$m6 $str$m6_price\r\n"
-                    total_bill += m6_price.toInt()
+                    ordercontent += "$m6 $str$m6_price\r\n" //注文商品と価格を記録
+                    total_bill += m6_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu7 -> {
-                if(!menu7.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
+            R.id.menu7 -> { //7番目のメニューボタン押下時
+                if(!menu7.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
+                    if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m7
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m7
@@ -430,16 +452,17 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m7
                     }
-                    ordercontent += "$m7 $str$m7_price\r\n"
-                    total_bill += m7_price.toInt()
+                    ordercontent += "$m7 $str$m7_price\r\n" //注文商品と価格を記録
+                    total_bill += m7_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu8 -> {
-                if(!menu8.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
+            R.id.menu8 -> { //8番目のメニューボタン押下時
+                if(!menu8.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
+                    if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m8
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m8
@@ -460,16 +483,17 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m8
                     }
-                    ordercontent += "$m8 $str$m8_price\r\n"
-                    total_bill += m8_price.toInt()
+                    ordercontent += "$m8 $str$m8_price\r\n" //注文商品と価格を記録
+                    total_bill += m8_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu9 -> {
-                if(!menu9.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
+            R.id.menu9 -> { //9番目のメニューボタン押下時
+                if(!menu9.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
+                    if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m9
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m9
@@ -490,16 +514,17 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m9
                     }
-                    ordercontent += "$m9 $str$m9_price\r\n"
-                    total_bill += m9_price.toInt()
+                    ordercontent += "$m9 $str$m9_price\r\n" //注文商品と価格を記録
+                    total_bill += m9_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
-            R.id.menu10 -> {
-                if(!menu10.text.equals("なし")) {
-                    if (ordered1.text.isNullOrBlank() && ordered10.text.isNullOrBlank()) {
+            R.id.menu10 -> { //10番目のメニューボタン押下時
+                if(!menu10.text.equals("なし") && ordered10.text.isNullOrBlank()) {
+                    //メニューリストの空いている場所に順次メニューを表示
+                    if (ordered1.text.isNullOrBlank()) {
                         ordered1.text = m10
                     } else if (ordered2.text.isNullOrBlank()) {
                         ordered2.text = m10
@@ -520,10 +545,10 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
                     } else if (ordered10.text.isNullOrBlank()) {
                         ordered10.text = m10
                     }
-                    ordercontent += "$m10 $str$m10_price\r\n"
-                    total_bill += m10_price.toInt()
+                    ordercontent += "$m10 $str$m10_price\r\n" //注文商品と価格を記録
+                    total_bill += m10_price.toInt()          //合計金額計算
                     str += total_bill.toString()
-                    ordertotal.text = str
+                    ordertotal.text = str                   //合計金額表示
                     str = "￥"
                 }
             }
