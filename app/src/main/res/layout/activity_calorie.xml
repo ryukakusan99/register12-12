@@ -188,3 +188,18 @@
         app:layout_constraintVertical_bias="0.946" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- *************************************** -->
+    <!--
+     ***  File Name		: activity_calorie.xml
+     ***  Version		: V1.0
+     ***  Designer		: 島田　靖大
+     ***  Date			: 2022.06.23
+     ***  Purpose       : レシート画面表示
+     ***
+    -->
+    <!-- *************************************** -->
+    <!--
+    *** Revision :
+    *** V1.0 : 島田靖大, 2022.06.23
+    -->

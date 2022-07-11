@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
                 }
+                //ログインぼたんの押された処理
                 /*
                 if (i == 1) {
                     Toast.makeText(this, "ログイン", Toast.LENGTH_SHORT).show()
