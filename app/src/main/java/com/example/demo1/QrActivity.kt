@@ -103,7 +103,8 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         val adzukari: TextView = findViewById(R.id.adzukari)//預かり金額の宣言
         val otsuri:TextView=findViewById(R.id.otsuri)//おつりの宣言
         val calorie:TextView=findViewById(R.id.calorie)//カロリーの宣言
-        var ca=0.00//合計カロリーの宣言
+        var ca:Double //合計カロリーの宣言
+        ca= 0.0
         when (view.id) {
             //表示選択処理
             R.id.view -> {
@@ -174,11 +175,13 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
                         ca += c[2].toDouble()
                     }
                     zx +=1
+                    println(ca)
                 }
-               // println(ca)
-                println(zx)
-                catext+="$ca$cal"
 
+                println(zx)
+                ca=Math.round(ca*10.0)/10.0
+                catext+="$ca$cal"
+                //println(ca)
                 calorie.text=catext
             }
             //戻る選択処理
