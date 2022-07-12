@@ -29,6 +29,7 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
     var mstr : String = ""
     var cal =" kcal"
     var catext:String=""
+    var mstr2 : String = ""
     //DB接続
     inner class TaskOrderConnect(act : Activity) : AsyncTaskOrder() {
         override var activity: Activity? = null
@@ -68,6 +69,18 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
             this@QrActivity.mstr = result
         }
     }
+
+    inner class TaskMenuConnect(act : Activity) : AsyncTaskOrder() {
+        override var activity: Activity? = null
+        init {
+            activity = act
+        }
+
+        override fun onPostExecute(result: String) {
+            this@QrActivity.mstr2 = result
+        }
+    }
+
     //画面との接続宣言
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,8 +91,8 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
         hideButton.setOnClickListener(this)
         val viewButton : Button = findViewById(R.id.view)//表示ボタン宣言
         viewButton.setOnClickListener(this)
-
-
+        var task2 = this.TaskMenuConnect(this)
+        task2.execute()
     }
 
     //表示ボタンが押された時の処理
@@ -170,7 +183,10 @@ class QrActivity : AppCompatActivity() ,View.OnClickListener {
             }
             //戻る選択処理
             R.id.button2 -> {
+                var task = this.TaskMenuConnect(this)
+                task.execute()
                 val intent = Intent(this@QrActivity, OrderActivity::class.java)
+                intent.putExtra("Menu", mstr2)//注文画面にメニュー情報を送る
                 startActivity(intent)
 
             }

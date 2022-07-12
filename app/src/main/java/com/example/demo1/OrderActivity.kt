@@ -113,7 +113,78 @@ class OrderActivity : AppCompatActivity() , View.OnClickListener {
         if(m9.isNullOrBlank()){ menu9.text = "なし" }
         if(m10.isNullOrBlank()){ menu10.text = "なし" }
 
+        //QR画面からデータを受け取る
+        val menu = intent.getStringExtra("Menu")  //メニュー情報
+        if (menu != null) {
+            mstr = menu  //QR画面からメニュー情報取得
 
+            //取得データの分解＆メニューボタン上の文字列設定
+            val arr1 = mstr.split("\r\n")
+            if(!arr1[0].isNullOrBlank()){menu1.text = arr1[0]}
+            if(!arr1[1].isNullOrBlank()){menu2.text = arr1[1]}
+            if(!arr1[2].isNullOrBlank()){menu3.text = arr1[2]}
+            if(!arr1[3].isNullOrBlank()){menu4.text = arr1[3]}
+            if(!arr1[4].isNullOrBlank()){menu5.text = arr1[4]}
+            if(!arr1[5].isNullOrBlank()){menu6.text = arr1[5]}
+            if(!arr1[6].isNullOrBlank()){menu7.text = arr1[6]}
+            if(!arr1[7].isNullOrBlank()){menu8.text = arr1[7]}
+            if(!arr1[8].isNullOrBlank()){menu9.text = arr1[8]}
+            if(!arr1[9].isNullOrBlank()){menu10.text = arr1[9]}
+
+            //メニュー情報を"メニュー名"と"価格"に分解
+            if(!menu1.text.equals("なし")){
+                val str1 = menu1.text.split(" ￥")
+                m1 = str1[0]
+                m1_price = str1[1]
+                println(str1)
+            }
+            if(!menu2.text.equals("なし")){
+                var str = menu2.text.split(" ￥")
+                m2 = str[0]
+                m2_price = str[1]
+            }
+            if(!menu3.text.equals("なし")){
+                var str = menu3.text.split(" ￥")
+                m3 = str[0]
+                m3_price = str[1]
+            }
+            if(!menu4.text.equals("なし")){
+                var str = menu4.text.split(" ￥")
+                m4 = str[0]
+                m4_price = str[1]
+            }
+            if(!menu5.text.equals("なし")){
+                var str = menu5.text.split(" ￥")
+                m5 = str[0]
+                m5_price = str[1]
+            }
+            if(!menu6.text.equals("なし")){
+                var str = menu6.text.split(" ￥")
+                m6 = str[0]
+                m6_price = str[1]
+            }
+            if(!menu7.text.equals("なし")){
+                var str = menu7.text.split(" ￥")
+                m7 = str[0]
+                m7_price = str[1]
+            }
+            if(!menu8.text.equals("なし")){
+                var str = menu8.text.split(" ￥")
+                m8 = str[0]
+                m8_price = str[1]
+            }
+            if(!menu9.text.equals("なし")){
+                var str = menu9.text.split(" ￥")
+                m9 = str[0]
+                m9_price = str[1]
+            }
+            if(!menu10.text.equals("なし")){
+                var str = menu10.text.split(" ￥")
+                m10 = str[0]
+                m10_price = str[1]
+            }
+            menuget.visibility = View.INVISIBLE //メニュー取得ボタンを非表示にする
+        }
     }
 
     //各ボタンのクリックイベント設定
